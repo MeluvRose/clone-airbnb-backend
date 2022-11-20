@@ -30,6 +30,8 @@ class RoomsAdmin(admin.ModelAdmin):
         "updated_at",
     )
 
+    search_fields = ("^name", "=price", "owner__username")
+
 
 @admin.register(Amenity)
 class AmenityAdmin(admin.ModelAdmin):
