@@ -9,8 +9,8 @@ class GradeFilter(admin.SimpleListFilter):
 
     def lookups(self, request, model_admin):
         return [
-            ("bad", "Bad (~⭐2)"),
-            ("good", "Good (⭐3~)"),
+            ("bad", "Bad (~ ⭐2)"),
+            ("good", "Good (⭐3 ~)"),
         ]
 
     def queryset(self, request, reviews):
@@ -36,9 +36,6 @@ class WordFilter(admin.SimpleListFilter):
         ]
 
     def queryset(self, request, reviews):
-        # print(reviews)
-        # print(dir(request))
-        # print(request.GET)
         word = self.value()
         if word:
             return reviews.filter(payload__contains=word)
