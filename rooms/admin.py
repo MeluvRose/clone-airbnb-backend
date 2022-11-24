@@ -4,13 +4,7 @@ from .models import Room, Amenity
 
 @admin.action(description="Set all prices to Zero")
 def reset_prices(model_admin, request, rooms):
-    # print(model_admin)
-    # print(dir(request))
-    # print(dir(request.user))
-    # print(queryset)
-
     for room in rooms.all():
-        # print(room)
         room.price = 0
         room.save()
 
